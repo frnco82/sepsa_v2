@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Napoved SEPSE pri novorojenčkih</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+	<h1>Napoved SEPSE pri novorojenčkih</h1>
+     <h5> Vnesi vrednosti v spodnja polja:</h5>
+</nav>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="1" placeholder="Spol (0=m; 1=ž)" required="required" />
+		<input type="text" name="2" placeholder="Porod_V_SC (0=vaginalni)" required="required" />
+		<input type="text" name="3" placeholder="Apgar 5 [0=(1-6); 1=(7-10)]" required="required" />
+		<input type="text" name="4" placeholder="GS" required="required" />
+		<input type="text" name="5" placeholder="Porodna teža" required="required" />
+		<input type="text" name="6" placeholder="Starost ob bolezni" required="required" />		
+    	<input type="text" name="7" placeholder="Levkociti (za decimalko uporabite piko)" required="required" />
+    	<input type="text" name="8" placeholder="Paličasti" required="required" />
+    	<input type="text" name="9" placeholder="Limfociti" required="required" />
+    	<input type="text" name="10" placeholder="Morfološke spremembe nevtrofilci (0-ni; 1-so)" required="required" />
+    	<input type="text" name="11" placeholder="Trombociti" required="required" />
+    	<input type="text" name="12" placeholder="CRP (za decimalko uporabite piko)" required="required" />
+    	<input type="text" name="13" placeholder="PCT (za decimalko uporabite piko)" required="required" />
+
+        <button type="submit" class="btn">Izračunaj</button>
+    </form>
+
+   <br>
+   <br>
+   {{ pred }}
+
+   <br>
+   <br>
+   <br>
+   <br>
+	<footer>
+	<div>
+	<p style="text-align:left; font-size:60%;">&copy; Franci Čuček (franci@analyst.si)</p>
+
+	</div>
+	</footer>
+
+ </div>
+
+</body>
+</html>
+
